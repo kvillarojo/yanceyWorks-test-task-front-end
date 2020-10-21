@@ -5,6 +5,9 @@ import auth from './modules/auth'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
+  state: {
+    isLoding: false
+  },
   modules: {
     auth
   }

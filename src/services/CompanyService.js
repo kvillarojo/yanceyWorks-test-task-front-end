@@ -2,7 +2,14 @@ import api from "@/api";
 
 export class CompanyService {
     static getCompanies(params) {
-        return api.get("/companies", { params });
+        return api.get("/companies", params)
+            .then(res => {
+                return res.data.data
+            })
+            .catch(function (error) {
+                return console.error(error)
+            });
+
     }
 
     static createCompany(params) {

@@ -3,7 +3,7 @@
         <div class="Navigation">
             <div class="navbar-item">
                 <div class="field is-grouped">
-                    <button class="button control">
+                    <button class="button control" @click="getCompanies">
                         Company List
                     </button>
 
@@ -22,7 +22,9 @@
 </template>
 
 <script>
-    export default {
-      props: {},
-    };
+export default {
+    props: {
+        getCompanies: Function
+    },
+};
 </script>

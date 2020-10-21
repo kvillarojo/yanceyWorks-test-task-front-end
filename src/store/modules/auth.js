@@ -6,7 +6,7 @@ import { UserService } from "@/services/UserService";
 const initialState = () => {
     return {
         auth_token: {
-            access_token: null
+            token: null
         },
         user: {}
     };
