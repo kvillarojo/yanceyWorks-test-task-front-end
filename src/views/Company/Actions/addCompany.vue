@@ -61,6 +61,7 @@ export default {
     data() {
         return {
             modalShow: false,
+            isLoading: false,
             companyDetails: {
                 name: null,
                 phone: null,
@@ -70,10 +71,7 @@ export default {
     },
     methods: {
         checkFormValidity() {
-            const valid = this.$refs.form.checkValidity()
-            console.log(valid)
-            this.nameState = valid
-            return valid
+            return this.$refs.form.checkValidity()
         },
         reset() {
             this.companyDetails = {
@@ -81,6 +79,7 @@ export default {
                 phone: null,
                 email: null
             }
+            this.isLoading = false
         },
         handleOk(bvModalEvt) {
             bvModalEvt.preventDefault()
@@ -91,14 +90,16 @@ export default {
                 return
             }
             this.$nextTick(() => {
-                this.addCompany()
-                this.modalShow = false
+                this.addCompany(this)
             });
         },
         async addCompany() {
-            await CompanyService.createCompany(this.companyDetails)
+            this.isLoading= true
+           const val = await CompanyService.createCompany(this.companyDetails)
+            console.log(val);
             eventBus.$emit('add-company');
             this.reset();
+            this.modalShow = false
         }
     }
 }
