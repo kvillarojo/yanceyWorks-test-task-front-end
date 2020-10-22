@@ -14,19 +14,21 @@ export class CompanyService {
 
     static createCompany(params) {
         return api.post("/companies", {...params})
-            .then(res => {
-                return res
-            })
-            .catch(function (error) {
-                return console.error(error)
-            });
     }
 
     static updateCompany(params, companyId) {
-        return api.put("/companies/" + companyId, params);
+        return api.put("/companies/" + companyId, params)
     }
 
     static deleteCompany(companyId) {
         return api.delete("/companies/" + companyId);
+    }
+
+    static uploadLogo(companyId, params) {
+        return api.post("/companies/" + companyId + "/logo",
+            params,
+            config => {
+                config.headers["Content-Type"] = 'multipart/form-data'
+            })
     }
 }

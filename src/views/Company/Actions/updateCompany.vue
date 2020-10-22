@@ -3,7 +3,7 @@
         <button @click="modalShow = !modalShow" class="button">{{ btn_name }}</button>
         <b-modal
             v-model="modalShow"
-            title="Add Company"
+            title="Update Company"
             ref="modal"
             id="modal-prevent-closing"
             @ok="handleOk"
@@ -91,10 +91,10 @@ export default {
                 return
             }
             this.$nextTick(() => {
-                this.addCompany(this)
+                this.handleUpdateCompany(this)
             });
         },
-        async addCompany() {
+        async handleUpdateCompany() {
             this.isLoading = true
             await CompanyService.updateCompany({...this.companyDetails}, this.data.id)
             eventBus.$emit('get-companies');

@@ -24,7 +24,7 @@
                     </b-row>
 
                     <b-row class="mb-2">
-                        <button class="button "> Upload </button>
+                       <UploadLogo btn_name="Upload Logo" :company_id="row.item.id"/>
                     </b-row>
 
                 </b-card>
@@ -51,6 +51,7 @@
 import {BCard, BPagination, BRow, BTable} from "bootstrap-vue";
 import RemoveCompany from "@/views/Company/Actions/removeCompany";
 import UpdateCompany from "@/views/Company/Actions/updateCompany";
+import UploadLogo from "@/views/Company/Actions/uploadLogo";
 
 export default {
     props: {
@@ -63,7 +64,7 @@ export default {
         header: [Array, Object],
         removeCompany: Function
     },
-    components: {UpdateCompany, RemoveCompany, BTable, BPagination, BRow, BCard}
+    components: {UploadLogo, UpdateCompany, RemoveCompany, BTable, BPagination, BRow, BCard}
 };
 </script>
 
