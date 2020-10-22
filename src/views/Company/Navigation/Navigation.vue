@@ -8,11 +8,6 @@
                     </button>
 
                     <add-company btn_name="+ Add Company "/>
-
-                    <button class="button control">
-                        + Add Employee
-                    </button>
-
                 </div>
             </div>
         </div>
