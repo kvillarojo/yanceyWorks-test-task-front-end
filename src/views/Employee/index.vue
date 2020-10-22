@@ -2,19 +2,18 @@
     <default-layout>
         <section class="section">
             <div class="container">
-                <h1 class="title">Companies</h1>
+                <h1 class="title">Employee</h1>
             </div>
 
             <div class="container">
                 <hr>
                 <navigation
-                    :get-companies="getCompanies"
-                    :add-company="getCompanies"
+                    :get-employees="getEmployees"
                 />
             </div>
 
             <div class="container">
-                <customer-table
+                <employee-table
                     v-if="!isLoading"
                     :current-page="currentPage"
                     :data-items="dataItems"
@@ -29,45 +28,40 @@
                 <loading v-else/>
             </div>
         </section>
+
     </default-layout>
 </template>
 
 <script>
 import DefaultLayout from "@/layouts/defaultLayout";
-import CustomerTable from "@/views/Company/table/CompanyTable";
-import Navigation from "@/views/Company/Navigation/Navigation";
-import {CompanyService} from "@/services/CompanyService";
-import loading from "@/components/loading/index"
+import Navigation from "@/views/Employee/Navigation/Navigation";
+import EmployeeTable from "@/views/Employee/table/EmployeeTable";
+import {EmployeeService} from "@/services/EmployeeService";
 import eventBus from "@/utils/eventBus";
+import loading from "@/components/loading/index";
 
 export default {
-    name: "Company",
-    components: {Navigation, CustomerTable, DefaultLayout, loading},
-    data() {
+    name: "Employee",
+    components: {'employee-table': EmployeeTable, Navigation, DefaultLayout, loading},
+    data () {
         return {
             fields: [
                 {
                     key: "id",
                     label: "ID",
                 }, {
-                    key: "name",
-                    label: "Name",
+                    key: "first_name",
+                    label: "firstname",
                 }, {
-                    key: "email",
-                    label: "Email",
-                }, {
-                    key: "phone",
-                    label: "Phone",
-                }, {
-                    key: "logo",
-                    label: "Logo",
+                    key: "last_name",
+                    label: "Lastname",
                 }, {
                     key: "action",
                     label: "Action",
                 },
             ],
             sortBy: 'id',
-            sortDesc: false,
+            sortDesc: true,
             pageCount: 10,
             dataItems: [],
             currentPage: 0,
@@ -76,28 +70,28 @@ export default {
         }
     },
     methods: {
-        async getCompanies(params, page) {
+        async getEmployees (params, page) {
             this.isLoading = true
-            const companies = await CompanyService.getCompanies(params, page)
-            this.dataItems = companies.data
-            this.pageCount = companies.per_page
-            this.currentPage = companies.current_page
-            this.rows = companies.total
+            const employees = await EmployeeService.getEmployees(params, page)
+            this.dataItems = employees.data
+            console.log(employees.per_page)
+            this.pageCount = employees.per_page
+            this.currentPage = employees.current_page
+            this.rows = employees.total
 
             this.isLoading = false
         },
         nextPage(pageNum) {
-            this.getCompanies({}, '?page='+ pageNum)
+            this.getEmployees({}, '?page='+ pageNum)
         },
     },
-    created() {
-        this.getCompanies()
+    created () {
+        this.getEmployees()
     },
     mounted() {
-        eventBus.$on("get-companies", () => {
-            this.getCompanies()
+        eventBus.$on("get-employees", () => {
+            this.getEmployees()
         });
     }
 }
 </script>
-

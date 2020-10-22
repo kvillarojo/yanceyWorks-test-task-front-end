@@ -19,7 +19,7 @@ import AddCompany from "@/views/Company/Actions/addCompany";
 
 export default {
     components: {
-      'add-company': AddCompany
+        'add-company': AddCompany
     },
     props: {
         getCompanies: Function,

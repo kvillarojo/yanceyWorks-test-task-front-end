@@ -18,7 +18,7 @@
 
 import eventBus from "@/utils/eventBus";
 import {CompanyService} from "@/services/CompanyService";
-import ActionModal from "@/components/button/Modal/ActionModal";
+import ActionModal from "@/components/modal/ActionModal";
 
 export default {
     props: {

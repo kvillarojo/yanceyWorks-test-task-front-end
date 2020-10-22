@@ -1,4 +1,4 @@
-<template xmlns:t-paginate="http://www.w3.org/1999/html">
+<template>
     <div class="CustomerTable">
         <b-table
             :items="dataItems"
@@ -44,11 +44,10 @@
 </template>
 
 <script>
-
-import {BCard, BRow, BTable} from "bootstrap-vue";
-import RemoveCompany from "@/views/Company/Actions/removeCompany";
-import UpdateCompany from "@/views/Company/Actions/updateCompany";
 import UploadLogo from "@/views/Company/Actions/uploadLogo";
+import UpdateCompany from "@/views/Company/Actions/updateCompany";
+import RemoveCompany from "@/views/Company/Actions/removeCompany";
+import {BCard, BRow, BTable} from "bootstrap-vue";
 import TPaginate from "@/components/pagination/TPaginate";
 
 export default {
@@ -64,6 +63,5 @@ export default {
         nextPage: Function
     },
     components: {UploadLogo, UpdateCompany, RemoveCompany, BTable, BRow, BCard, 't-paginate': TPaginate}
-};
+}
 </script>
-

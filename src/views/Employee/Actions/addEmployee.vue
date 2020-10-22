@@ -10,35 +10,25 @@
                 action="post"
                 @submit.stop.prevent="handleSubmit">
 
-                <label class="label"> Name
+                <label class="label"> First Name
                     <input
                         type="text"
                         class="input control"
-                        name="fname"
+                        name="first_name"
                         required
-                        v-model='companyDetails.name'
-                        placeholder="name">
+                        v-model='employeeDetails.first_name'
+                        placeholder="first name">
                 </label>
 
-                <label class="label"> Email
-                    <input
-                        type="email"
-                        class="input control"
-                        name="email"
-                        required
-                        v-model='companyDetails.email'
-                        placeholder="email">
-                </label>
-                <label class="label"> Phone
+                <label class="label"> Last Name
                     <input
                         type="text"
                         class="input control"
-                        name="phone"
+                        name="last_name"
                         required
-                        v-model='companyDetails.phone'
-                        placeholder="phone">
+                        v-model='employeeDetails.last_name'
+                        placeholder="last name">
                 </label>
-
             </form>
         </action-modal>
     </div>
@@ -47,8 +37,8 @@
 <script>
 
 import eventBus from "@/utils/eventBus";
-import {CompanyService} from "@/services/CompanyService";
 import ActionModal from "@/components/modal/ActionModal";
+import {EmployeeService} from "@/services/EmployeeService";
 
 export default {
     props: {
@@ -59,10 +49,9 @@ export default {
         return {
             modalShow: false,
             isLoading: false,
-            companyDetails: {
-                name: null,
-                phone: null,
-                email: null
+            employeeDetails: {
+                first_name: null,
+                last_name: null
             }
         }
     },
@@ -71,10 +60,9 @@ export default {
             return this.$refs.form.checkValidity()
         },
         reset() {
-            this.companyDetails = {
-                name: null,
-                phone: null,
-                email: null
+            this.employeeDetails = {
+                first_name: null,
+                last_name: null
             }
             this.isLoading = false
         },
@@ -87,13 +75,14 @@ export default {
                 return
             }
             this.$nextTick(() => {
-                this.addCompany(this)
+                this.addEmployee()
             });
         },
-        async addCompany() {
+        async addEmployee() {
             this.isLoading = true
-            await CompanyService.createCompany(this.companyDetails)
-            eventBus.$emit('get-companies');
+            console.log(this.employeeDetails)
+            await EmployeeService.createEmployee(this.employeeDetails)
+            eventBus.$emit('get-employees');
             this.reset();
             this.modalShow = false
         }

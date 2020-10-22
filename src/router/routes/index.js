@@ -20,7 +20,7 @@ const routes = [
     {
         path: '/employee',
         name: 'Employee',
-        component: () => import('@/views/Employee/Employee'),
+        component: () => import('@/views/Employee/index'),
         meta: {
             allowAnonymous: false
         }
