@@ -23,8 +23,8 @@
                         <update-employee :data="row.item" btn_name="Update Details"/>
                     </b-row>
 
-                    <b-row class="mb-2">
-                        <UploadLogo btn_name="Upload Logo" :company_id="row.item.id"/>
+                    <b-row class="mb-2" v-if="!row.item.company">
+                        <assign-company btn_name="Assign Company" :employee_id="row.item.id"/>
                     </b-row>
 
                 </b-card>
@@ -44,11 +44,11 @@
 </template>
 
 <script>
-import UploadLogo from "@/views/Company/Actions/uploadLogo";
 import {BCard, BRow, BTable} from "bootstrap-vue";
 import TPaginate from "@/components/pagination/TPaginate";
 import RemoveEmployee from "@/views/Employee/Actions/removeEmployee";
 import UpdateEmployee from "@/views/Employee/Actions/updateEmployee";
+import AssignCompany from "@/views/Employee/Actions/assignCompany";
 
 export default {
     props: {
@@ -62,6 +62,6 @@ export default {
         removeCompany: Function,
         nextPage: Function
     },
-    components: {UpdateEmployee, RemoveEmployee, UploadLogo, BTable, BRow, BCard, 't-paginate': TPaginate}
+    components: {AssignCompany, UpdateEmployee, RemoveEmployee, BTable, BRow, BCard, 't-paginate': TPaginate}
 }
 </script>

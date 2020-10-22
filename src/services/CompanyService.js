@@ -30,4 +30,8 @@ export class CompanyService {
                 config.headers["Content-Type"] = 'multipart/form-data'
             })
     }
+
+    static addEmployee(company_id, employee_id){
+        return api.post('/companies/'+ company_id, {employee_id: employee_id})
+    }
 }
