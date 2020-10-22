@@ -7,7 +7,10 @@
 
             <div class="container">
                 <hr>
-                <navigation :get-companies="getCompanies"/>
+                <navigation
+                    :get-companies="getCompanies"
+                    :add-company="getCompanies"
+                />
             </div>
 
             <div class="container">
@@ -34,6 +37,7 @@ import CustomerTable from "@/views/Company/table/CompanyTable";
 import Navigation from "@/views/Company/Navigation/Navigation";
 import {CompanyService} from "@/services/CompanyService";
 import loading from "@/components/loading/index"
+import eventBus from "@/utils/eventBus";
 
 export default {
     name: "Company",
@@ -83,10 +87,18 @@ export default {
         },
         clickCallback(pageNum) {
             this.getCompanies(pageNum)
+        },
+        addCompany() {
+
         }
     },
-    mounted() {
+    created() {
         this.companies = this.getCompanies()
+    },
+    mounted() {
+        eventBus.$on("add-company", () => {
+            this.getCompanies()
+        });
     }
 }
 </script>

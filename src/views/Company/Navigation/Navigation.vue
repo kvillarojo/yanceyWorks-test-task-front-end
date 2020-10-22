@@ -4,12 +4,10 @@
             <div class="navbar-item">
                 <div class="field is-grouped">
                     <button class="button control" @click="getCompanies">
-                        Company List
+                        refresh
                     </button>
 
-                    <button class="button control">
-                        + Add Customer
-                    </button>
+                    <add-company btn_name="+ Add Company "/>
 
                     <button class="button control">
                         + Add Employee
@@ -22,9 +20,15 @@
 </template>
 
 <script>
+import AddCompany from "@/views/Company/Actions/addCompany";
+
 export default {
+    components: {
+      'add-company': AddCompany
+    },
     props: {
-        getCompanies: Function
+        getCompanies: Function,
+        addCompany: Function
     },
 };
 </script>

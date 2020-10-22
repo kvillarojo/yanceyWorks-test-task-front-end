@@ -12,7 +12,7 @@ const routes = [
     {
         path: '/companies',
         name: 'Company',
-        component: () => import('@/views/Company/Company'),
+        component: () => import('@/views/Company/index'),
         meta: {
             allowAnonymous: false
         }

@@ -13,7 +13,13 @@ export class CompanyService {
     }
 
     static createCompany(params) {
-        return api.post("/companies", params);
+        return api.post("/companies", {...params})
+            .then(res => {
+                return res
+            })
+            .catch(function (error) {
+                return console.error(error)
+            });
     }
 
     static updateCompany(params, companyId) {
