@@ -4,7 +4,7 @@
         <action-modal
             :submit="handleOk"
             :show="modalShow"
-            title="Add Company">
+            title="Add Employee">
             <form
                 ref="form"
                 action="post"

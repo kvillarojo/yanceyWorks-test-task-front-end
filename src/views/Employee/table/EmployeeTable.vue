@@ -16,7 +16,7 @@
             <template #row-details="row">
                 <b-card>
                     <b-row class="mb-2">
-                        <remove-company :company_id="row.item.id" btn_name="Remove"/>
+                        <remove-employee :employee_id="row.item.id" btn_name="Remove" />
                     </b-row>
 
                     <b-row class="mb-2">
@@ -46,9 +46,9 @@
 <script>
 import UploadLogo from "@/views/Company/Actions/uploadLogo";
 import UpdateCompany from "@/views/Company/Actions/updateCompany";
-import RemoveCompany from "@/views/Company/Actions/removeCompany";
 import {BCard, BRow, BTable} from "bootstrap-vue";
 import TPaginate from "@/components/pagination/TPaginate";
+import RemoveEmployee from "@/views/Employee/Actions/removeEmployee";
 
 export default {
     props: {
@@ -62,6 +62,6 @@ export default {
         removeCompany: Function,
         nextPage: Function
     },
-    components: {UploadLogo, UpdateCompany, RemoveCompany, BTable, BRow, BCard, 't-paginate': TPaginate}
+    components: {RemoveEmployee, UploadLogo, UpdateCompany, BTable, BRow, BCard, 't-paginate': TPaginate}
 }
 </script>

@@ -2,7 +2,7 @@ import api from "@/api";
 
 export class EmployeeService {
     static getEmployees(params, page = '') {
-        return api.get("/employee" + page, params)
+        return api.get("/employees" + page, params)
             .then(res => {
                 return res.data.data
             })
@@ -20,7 +20,7 @@ export class EmployeeService {
     }
 
     static removeEmployee(employee_id) {
-        return api.delete('/employee'+ employee_id)
+        return api.delete('/employee/'+ employee_id)
     }
 
     static populateEmployees(){

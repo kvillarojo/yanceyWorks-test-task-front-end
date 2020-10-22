@@ -56,12 +56,15 @@ export default {
                     key: "last_name",
                     label: "Lastname",
                 }, {
+                    key: "company",
+                    label: "Company",
+                }, {
                     key: "action",
                     label: "Action",
                 },
             ],
             sortBy: 'id',
-            sortDesc: true,
+            sortDesc: false,
             pageCount: 10,
             dataItems: [],
             currentPage: 0,
