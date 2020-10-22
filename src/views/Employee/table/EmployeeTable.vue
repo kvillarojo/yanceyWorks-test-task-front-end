@@ -46,9 +46,9 @@
 <script>
 import {BCard, BRow, BTable} from "bootstrap-vue";
 import TPaginate from "@/components/pagination/TPaginate";
-import RemoveEmployee from "@/views/Employee/Actions/removeEmployee";
-import UpdateEmployee from "@/views/Employee/Actions/updateEmployee";
-import AssignCompany from "@/views/Employee/Actions/assignCompany";
+import RemoveEmployee from "@/views/Employee/Actions/RemoveEmployee";
+import UpdateEmployee from "@/views/Employee/Actions/UpdateEmployee";
+import AssignCompany from "@/views/Employee/Actions/AssignCompany";
 
 export default {
     props: {

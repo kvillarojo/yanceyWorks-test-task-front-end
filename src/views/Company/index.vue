@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import DefaultLayout from "@/layouts/defaultLayout";
+import DefaultLayout from "@/layouts/DefaultLayout";
 import CustomerTable from "@/views/Company/table/CompanyTable";
 import Navigation from "@/views/Company/Navigation/Navigation";
 import {CompanyService} from "@/services/CompanyService";

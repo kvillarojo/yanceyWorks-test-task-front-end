@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import AddCompany from "@/views/Company/Actions/addCompany";
+import AddCompany from "@/views/Company/Actions/AddCompany";
 
 export default {
     components: {

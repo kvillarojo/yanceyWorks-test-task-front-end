@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import Logout from "@/components/Logout/logout";
+import Logout from "@/components/logout/index";
 export default {
 name: "NavBar",
     components: {Logout}

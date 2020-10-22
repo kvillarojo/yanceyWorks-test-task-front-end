@@ -23,7 +23,7 @@
 
 <script>
 
-import DefaultLayout from "@/layouts/defaultLayout";
+import DefaultLayout from "@/layouts/DefaultLayout";
 
 export default {
     name: 'Home',

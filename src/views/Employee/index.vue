@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import DefaultLayout from "@/layouts/defaultLayout";
+import DefaultLayout from "@/layouts/DefaultLayout";
 import Navigation from "@/views/Employee/Navigation/Navigation";
 import EmployeeTable from "@/views/Employee/table/EmployeeTable";
 import {EmployeeService} from "@/services/EmployeeService";

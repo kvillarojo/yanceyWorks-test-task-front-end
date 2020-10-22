@@ -46,9 +46,9 @@
 <script>
 
 import {BCard, BRow, BTable} from "bootstrap-vue";
-import RemoveCompany from "@/views/Company/Actions/removeCompany";
-import UpdateCompany from "@/views/Company/Actions/updateCompany";
-import UploadLogo from "@/views/Company/Actions/uploadLogo";
+import RemoveCompany from "@/views/Company/Actions/RemoveCompany";
+import UpdateCompany from "@/views/Company/Actions/UpdateCompany";
+import UploadLogo from "@/views/Company/Actions/UploadLogo";
 import TPaginate from "@/components/pagination/TPaginate";
 
 export default {

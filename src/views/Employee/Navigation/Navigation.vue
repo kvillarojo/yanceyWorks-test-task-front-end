@@ -26,8 +26,8 @@
 </template>
 
 <script>
-import AddEmployee from "@/views/Employee/Actions/addEmployee";
-import PopulateEmployee from "@/views/Employee/Actions/populateEmployee";
+import AddEmployee from "@/views/Employee/Actions/AddEmployee";
+import PopulateEmployee from "@/views/Employee/Actions/PopulateEmployee";
 export default {
     components: {PopulateEmployee, AddEmployee},
     props: {
