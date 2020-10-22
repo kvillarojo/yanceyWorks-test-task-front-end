@@ -27,9 +27,7 @@
             <div class="navbar-end">
                 <div class="navbar-item">
                     <div class="buttons">
-                        <a class="button is-light" href="login">
-                            Log in
-                        </a>
+                        <logout btn_name="Sign out"/>
                     </div>
                 </div>
             </div>
@@ -38,8 +36,10 @@
 </template>
 
 <script>
+import Logout from "@/components/Logout/logout";
 export default {
-name: "NavBar"
+name: "NavBar",
+    components: {Logout}
 }
 </script>
 
