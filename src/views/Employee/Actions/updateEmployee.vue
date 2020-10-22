@@ -4,7 +4,7 @@
         <action-modal
             :submit="handleOk"
             :show="modalShow"
-            title="Add Employee">
+            title="Update Employee">
             <form
                 ref="form"
                 action="post"
@@ -81,7 +81,6 @@ export default {
         },
         async handleUpdate() {
             this.isLoading = true
-            console.log(this.employeeDetails)
             await EmployeeService.updateEmployee(this.employeeDetails, this.data.id)
             eventBus.$emit('get-employees');
             this.reset();

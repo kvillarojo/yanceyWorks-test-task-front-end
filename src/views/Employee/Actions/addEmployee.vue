@@ -80,7 +80,6 @@ export default {
         },
         async addEmployee() {
             this.isLoading = true
-            console.log(this.employeeDetails)
             await EmployeeService.createEmployee(this.employeeDetails)
             eventBus.$emit('get-employees');
             this.reset();
