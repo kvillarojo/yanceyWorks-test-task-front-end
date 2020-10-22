@@ -77,7 +77,6 @@ export default {
             this.isLoading = true
             const employees = await EmployeeService.getEmployees(params, page)
             this.dataItems = employees.data
-            console.log(employees.per_page)
             this.pageCount = employees.per_page
             this.currentPage = employees.current_page
             this.rows = employees.total

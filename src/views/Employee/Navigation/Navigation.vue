@@ -17,9 +17,7 @@
             <div class="navbar-end">
                 <div class="navbar-item">
                     <div class="field is-grouped">
-                        <button class="button control is-right is-warning">
-                            Populate Data
-                        </button>
+                        <populate-employee btn_name="Populate"/>
                     </div>
                 </div>
             </div>
@@ -29,8 +27,9 @@
 
 <script>
 import AddEmployee from "@/views/Employee/Actions/addEmployee";
+import PopulateEmployee from "@/views/Employee/Actions/populateEmployee";
 export default {
-    components: {AddEmployee},
+    components: {PopulateEmployee, AddEmployee},
     props: {
         getEmployees: Function
     },
