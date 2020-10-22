@@ -20,7 +20,7 @@
                     </b-row>
 
                     <b-row class="mb-2">
-                        <update-company :data="row.item" btn_name="Update Details"/>
+                        <update-employee :data="row.item" btn_name="Update Details"/>
                     </b-row>
 
                     <b-row class="mb-2">
@@ -45,10 +45,10 @@
 
 <script>
 import UploadLogo from "@/views/Company/Actions/uploadLogo";
-import UpdateCompany from "@/views/Company/Actions/updateCompany";
 import {BCard, BRow, BTable} from "bootstrap-vue";
 import TPaginate from "@/components/pagination/TPaginate";
 import RemoveEmployee from "@/views/Employee/Actions/removeEmployee";
+import UpdateEmployee from "@/views/Employee/Actions/updateEmployee";
 
 export default {
     props: {
@@ -62,6 +62,6 @@ export default {
         removeCompany: Function,
         nextPage: Function
     },
-    components: {RemoveEmployee, UploadLogo, UpdateCompany, BTable, BRow, BCard, 't-paginate': TPaginate}
+    components: {UpdateEmployee, RemoveEmployee, UploadLogo, BTable, BRow, BCard, 't-paginate': TPaginate}
 }
 </script>
