@@ -29,6 +29,7 @@
                         v-model='companyDetails.email'
                         placeholder="email">
                 </label>
+
                 <label class="label"> Phone
                     <input
                         type="text"
@@ -87,10 +88,10 @@ export default {
                 return
             }
             this.$nextTick(() => {
-                this.addCompany(this)
+                this.handleAddCompany(this)
             });
         },
-        async addCompany() {
+        async handleAddCompany() {
             this.isLoading = true
             await CompanyService.createCompany(this.companyDetails)
             eventBus.$emit('get-companies');

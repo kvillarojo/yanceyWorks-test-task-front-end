@@ -63,10 +63,10 @@ export default {
                 return
             }
             this.$nextTick(() => {
-                this.addEmployee()
+                this.handleAssignEmployee()
             });
         },
-        async addEmployee() {
+        async handleAssignEmployee() {
             this.isLoading = true
             await CompanyService.addEmployee(this.company_id, this.employee_id)
             eventBus.$emit('get-employees');

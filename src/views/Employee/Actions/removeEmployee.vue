@@ -1,5 +1,5 @@
 <template>
-    <button class="button is-danger" @click="removeCompany"> {{ btn_name }}</button>
+    <button class="button is-danger" @click="handleCompanyRemove"> {{ btn_name }}</button>
 </template>
 
 <script>
@@ -12,7 +12,7 @@ export default {
         btn_name: String
     },
     methods: {
-        removeCompany() {
+        handleCompanyRemove() {
             EmployeeService.removeEmployee(this.employee_id)
             eventBus.$emit('get-employees');
         }
