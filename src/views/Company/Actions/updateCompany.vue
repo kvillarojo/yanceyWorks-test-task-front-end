@@ -1,53 +1,11 @@
 <template>
     <div>
         <button @click="toggleModal" class="button">{{ btn_name }}</button>
-        <!--        <b-modal-->
-        <!--            v-model="modalShow"-->
-        <!--            title="Update Company"-->
-        <!--            ref="modal"-->
-        <!--            id="modal-prevent-closing"-->
-        <!--            @ok="handleOk"-->
-        <!--        >-->
-        <!--            <form-->
-        <!--                ref="form"-->
-        <!--                action="post"-->
-        <!--                @submit.stop.prevent="handleSubmit">-->
 
-        <!--                <label class="label"> Name-->
-        <!--                    <input-->
-        <!--                        type="text"-->
-        <!--                        class="input control"-->
-        <!--                        name="fname"-->
-        <!--                        required-->
-        <!--                        v-model='companyDetails.name'-->
-        <!--                        placeholder="name" >-->
-        <!--                </label>-->
-
-        <!--                <label class="label"> Email-->
-        <!--                    <input-->
-        <!--                        type="email"-->
-        <!--                        class="input control"-->
-        <!--                        name="email"-->
-        <!--                        required-->
-        <!--                        v-model='companyDetails.email'-->
-        <!--                        placeholder="email">-->
-        <!--                </label>-->
-        <!--                <label class="label"> Phone-->
-        <!--                    <input-->
-        <!--                        type="text"-->
-        <!--                        class="input control"-->
-        <!--                        name="phone"-->
-        <!--                        required-->
-        <!--                        v-model='companyDetails.phone'-->
-        <!--                        placeholder="phone">-->
-        <!--                </label>-->
-
-        <!--            </form>-->
-        <!--        </b-modal>-->
-        <ActionModal
+        <action-modal
             :submit="handleOk"
             :show="modalShow"
-            title="Update Comapny">
+            title="Update Company">
             <form
                 ref="form"
                 action="post"
@@ -83,13 +41,12 @@
                 </label>
 
             </form>
-        </ActionModal>
+        </action-modal>
     </div>
 </template>
 
 <script>
 
-// import {BModal} from "bootstrap-vue";
 import eventBus from "@/utils/eventBus";
 import {CompanyService} from "@/services/CompanyService";
 import ActionModal from "@/components/button/Modal/ActionModal";
@@ -99,7 +56,7 @@ export default {
         btn_name: String,
         data: [Array, Object]
     },
-    components: {ActionModal},
+    components: {'action-modal':ActionModal},
     data() {
         return {
             modalShow: false,

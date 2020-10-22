@@ -1,34 +1,31 @@
 <template>
     <div>
         <button @click="modalShow = !modalShow" class="button">{{ btn_name }}</button>
-        <b-modal
-            v-model="modalShow"
-            title="Upload Logo"
-            ref="modal"
-            id="modal-prevent-closing"
-            @ok="handleOk"
-        >
+        <action-modal
+            :submit="handleOk"
+            :show="modalShow"
+            title="Upload Logo">
             <div class="large-12 medium-12 small-12 cell">
                 <label>File
                     <input type="file" id="file" ref="file" v-on:change="handleFileUpload()"/>
                 </label>
             </div>
-        </b-modal>
+        </action-modal>
     </div>
 </template>
 
 <script>
 
-import {BModal} from "bootstrap-vue";
 import eventBus from "@/utils/eventBus";
 import {CompanyService} from "@/services/CompanyService";
+import ActionModal from "@/components/button/Modal/ActionModal";
 
 export default {
     props: {
         btn_name: String,
         company_id: Number
     },
-    components: {BModal},
+    components: {'action-modal': ActionModal},
     data() {
         return {
             modalShow: false,

@@ -1,13 +1,10 @@
 <template>
     <div>
         <button @click="modalShow = !modalShow" class="button">{{ btn_name }}</button>
-        <b-modal
-            v-model="modalShow"
-            title="Add Company"
-            ref="modal"
-            id="modal-prevent-closing"
-            @ok="handleOk"
-        >
+        <action-modal
+            :submit="handleOk"
+            :show="modalShow"
+            title="Add Company">
             <form
                 ref="form"
                 action="post"
@@ -43,21 +40,21 @@
                 </label>
 
             </form>
-        </b-modal>
+        </action-modal>
     </div>
 </template>
 
 <script>
 
-import {BModal} from "bootstrap-vue";
 import eventBus from "@/utils/eventBus";
 import {CompanyService} from "@/services/CompanyService";
+import ActionModal from "@/components/button/Modal/ActionModal";
 
 export default {
     props: {
         btn_name: String
     },
-    components: {BModal},
+    components: {'action-modal': ActionModal},
     data() {
         return {
             modalShow: false,
