@@ -20,7 +20,7 @@
                         name="fname"
                         required
                         v-model='companyDetails.name'
-                        placeholder="name">
+                        placeholder="name" >
                 </label>
 
                 <label class="label"> Email
@@ -55,7 +55,8 @@ import {CompanyService} from "@/services/CompanyService";
 
 export default {
     props: {
-        btn_name: String
+        btn_name: String,
+        data: [Array, Object]
     },
     components: {BModal},
     data() {
@@ -63,9 +64,9 @@ export default {
             modalShow: false,
             isLoading: false,
             companyDetails: {
-                name: null,
-                phone: null,
-                email: null
+                name: this.data.name,
+                phone: this.data.phone,
+                email: this.data.email
             }
         }
     },
@@ -95,7 +96,7 @@ export default {
         },
         async addCompany() {
             this.isLoading = true
-            await CompanyService.createCompany(this.companyDetails)
+            await CompanyService.updateCompany({...this.companyDetails}, this.data.id)
             eventBus.$emit('get-companies');
             this.reset();
             this.modalShow = false

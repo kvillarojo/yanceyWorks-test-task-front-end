@@ -1,5 +1,5 @@
 <template>
-    <button class="button is-danger" @click="removeCompany"> remove</button>
+    <button class="button is-danger" @click="removeCompany"> {{ btn_name }}</button>
 </template>
 
 <script>
@@ -8,7 +8,8 @@ import eventBus from "@/utils/eventBus";
 
 export default {
     props: {
-        company_id: Number
+        company_id: Number,
+        btn_name: String
     },
     methods: {
         removeCompany() {
@@ -18,7 +19,3 @@ export default {
     }
 }
 </script>
-
-<style scoped>
-
-</style>

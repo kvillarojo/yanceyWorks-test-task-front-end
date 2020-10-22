@@ -16,11 +16,11 @@
             <template #row-details="row">
                 <b-card>
                     <b-row class="mb-2">
-                        <remove-company :company_id="row.item.id" />
+                        <remove-company :company_id="row.item.id" btn_name="Remove"/>
                     </b-row>
 
                     <b-row class="mb-2">
-                        <button class="button "> Update Details </button>
+                       <update-company :data="row.item" btn_name="Update Details"/>
                     </b-row>
 
                     <b-row class="mb-2">
@@ -50,6 +50,7 @@
 
 import {BCard, BPagination, BRow, BTable} from "bootstrap-vue";
 import RemoveCompany from "@/views/Company/Actions/removeCompany";
+import UpdateCompany from "@/views/Company/Actions/updateCompany";
 
 export default {
     props: {
@@ -62,7 +63,7 @@ export default {
         header: [Array, Object],
         removeCompany: Function
     },
-    components: {RemoveCompany, BTable, BPagination, BRow, BCard}
+    components: {UpdateCompany, RemoveCompany, BTable, BPagination, BRow, BCard}
 };
 </script>
 
