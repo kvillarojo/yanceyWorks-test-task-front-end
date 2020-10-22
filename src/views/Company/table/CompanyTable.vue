@@ -13,10 +13,10 @@
                 </button>
             </template>
 
-            <template #row-details="">
+            <template #row-details="row">
                 <b-card>
                     <b-row class="mb-2">
-                        <button class="button is-danger"> remove </button>
+                        <remove-company :company_id="row.item.id" />
                     </b-row>
 
                     <b-row class="mb-2">
@@ -49,6 +49,7 @@
 <script>
 
 import {BCard, BPagination, BRow, BTable} from "bootstrap-vue";
+import RemoveCompany from "@/views/Company/Actions/removeCompany";
 
 export default {
     props: {
@@ -58,9 +59,10 @@ export default {
         dataItems: Array,
         currentPage: Number,
         rows: Number,
-        header: [Array, Object]
+        header: [Array, Object],
+        removeCompany: Function
     },
-    components: {BTable, BPagination, BRow, BCard}
+    components: {RemoveCompany, BTable, BPagination, BRow, BCard}
 };
 </script>
 

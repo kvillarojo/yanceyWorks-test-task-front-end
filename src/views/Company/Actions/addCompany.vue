@@ -94,10 +94,9 @@ export default {
             });
         },
         async addCompany() {
-            this.isLoading= true
-           const val = await CompanyService.createCompany(this.companyDetails)
-            console.log(val);
-            eventBus.$emit('add-company');
+            this.isLoading = true
+            await CompanyService.createCompany(this.companyDetails)
+            eventBus.$emit('get-companies');
             this.reset();
             this.modalShow = false
         }

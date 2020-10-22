@@ -88,15 +88,12 @@ export default {
         clickCallback(pageNum) {
             this.getCompanies(pageNum)
         },
-        addCompany() {
-
-        }
     },
     created() {
         this.companies = this.getCompanies()
     },
     mounted() {
-        eventBus.$on("add-company", () => {
+        eventBus.$on("get-companies", () => {
             this.getCompanies()
         });
     }
