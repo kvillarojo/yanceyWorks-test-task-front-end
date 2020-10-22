@@ -1,9 +1,13 @@
-# test-task-fe
+# <p align="center">Yancey Works Test Task</p>
+
+<p align="center">
+To give all candidates an opportunity to demonstrate their skills with a simple task with stretch options if they choose.
+</p>
 
 ## Project setup
-```
-npm install
-```
+
+- Copy `.env.example` to `.env`
+- npm install
 
 ### Compiles and hot-reloads for development
 ```
@@ -19,6 +23,3 @@ npm run build
 ```
 npm run lint
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
